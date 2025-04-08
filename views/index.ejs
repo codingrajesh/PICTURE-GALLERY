@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Picture Gallery</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <h1>Picture Gallery</h1>
+
+  <form action="/upload" method="POST" enctype="multipart/form-data">
+    <input type="file" name="image" id="imageInput" accept="image/*" required>
+    <button type="submit">Upload</button>
+    <!-- <a href="/>"><button class="btn btn-danger">Delete</button></a> -->
+  </form>
+
+  <div id="preview"></div>
+
+  <div class="gallery">
+    <% images.forEach(image => { %>
+      <div class="img-box">
+        <img src="/<%= image.filename %>" alt="Image">
+      </div>
+    <% }) %>
+  </div>
+
+  <script>
+    const input = document.getElementById('imageInput');
+    const preview = document.getElementById('preview');
+    input.addEventListener('change', () => {
+      preview.innerHTML = '';
+      const file = input.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = e => {
+          const img = document.createElement('img');
+          img.src = e.target.result;
+          img.style.maxWidth = '200px';
+          preview.appendChild(img);
+        };
+        reader.readAsDataURL(file);
+      }
+    });
+  </script>
+</body>
+</html>
