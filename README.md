@@ -1,0 +1,3 @@
+# PICTURE-GALLERY
+The Picture Gallery App is a simple web-based application built with Node.js, Express, MongoDB, and EJS.
+#The Picture Gallery App is a simple web-based application built with Node.js, Express, MongoDB, and EJS. It allows users to upload, view, and manage image files. Uploaded images are stored on the server using Multer middleware and their metadata is saved in a MongoDB database. The app features a responsive user interface where images are displayed in a dynamic gallery layout. It includes real-time preview functionality before uploading and basic error handling for file validation
